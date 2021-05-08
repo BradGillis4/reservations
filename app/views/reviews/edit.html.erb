@@ -1,0 +1,11 @@
+<h1> Edit your review for <%= @review.restaurant.name %>!</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+<%= form_for(@review) do |f| %>
+
+   
+    <%= f.label :content %> 
+    <%= f.text_area :content, :cols => 30, :rows => 8 %> 
+    
+    <%= f.submit %> 
+<% end %>

@@ -1,0 +1,38 @@
+<% if @restaurant %>
+    <h1>Reviews for <%= @restaurant.title%> </h1>
+    <%= link_to 'click here to review this restaurant!', new_restaurant_review_path %>
+<% elsif @user %>
+    <h1> Your Reviews! </h1>
+<% else %>
+    <h1>All Reviews</h1>
+<% end %>
+
+<ul>
+<% if @restaurant %>
+    <% if @reviews.none? %>
+        <h3> No reviews yet, be the first! </h3>
+    <% end %>
+    <% @reviews.each do |r| %>
+        <li><%= r.user.username %> |
+        
+        <%= r.content %> </l1>
+        <br>
+       <% end %>
+<% elsif @user %>
+    <h4> Click the title to go to that restaurant's review page. </h4>
+    <% @reviews.each do |r| %>
+        <li> 
+        <%= link_to r.restaurant.name, restaurant_reviews_path(r.restaurant_id) %> |
+       
+        <%= link_to 'edit', edit_review_path(r) %> |
+        <%= link_to 'delete', review_path(r), method: "delete" %> 
+        </li>
+    <% end %>
+<% else %> 
+    <% @reviews.each do |r| %>
+        <li> <%= r.user.username%> rated <%= link_to r.restaurant.name, restaurant_reviews_path(r.restaurant_id) %> 
+        Click the name to find out why!
+        </li>
+    <% end %>
+<% end %>
+    </ul>

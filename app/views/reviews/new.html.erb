@@ -1,0 +1,15 @@
+
+
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+<%= form_for([@review.restaurant,@review]) do |f| %>
+    <% if !@review.restaurant %>
+        <%= f.label :restaurant %>
+        <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %> 
+    <% else %> 
+        <%= f.hidden_field :restaurant_id %>
+    <% end %> 
+    
+    <%= f.label :content %> 
+    <%= f.text_area :content, :cols => 30, :rows => 8 %> 
+    <%= f.submit %> 
+<% end %>
