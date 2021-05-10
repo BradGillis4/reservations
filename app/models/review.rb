@@ -6,6 +6,6 @@ class Review < ApplicationRecord
     validates :content, length: {maximum: 250} 
     
     def self.newest_reviews
-        self.order(:created_at).limit(5)
+        self.order("created_at DESC").limit(5)
       end
 end

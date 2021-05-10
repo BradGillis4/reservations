@@ -46,7 +46,9 @@ class ReviewsController < ApplicationController
     end
 
     def newest_reviews
+        
         @reviews = Review.newest_reviews
+        
     end
     
     private 

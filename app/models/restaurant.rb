@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
-    has_many :users
-    has_many :reservations, through: :users
+    has_many :reviews
+    has_many :users, through: :reviews
+    has_many :reservations
 
     validates :name, presence: true  
      

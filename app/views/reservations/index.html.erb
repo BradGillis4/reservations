@@ -3,7 +3,7 @@
 
 
 <% @reservations.each do |res| %>
-    Appointment confirmed with <%= reservation.restaurant.name if reservation.restaurant %> <%= reservation.datetime.strftime("On %m/%d/%Y") %> <%= reservation.datetime.strftime("at %I:%M%p") %></p>
+    Appointment confirmed with <%= res.restaurant.name if res.restaurant %> <%= res.datetime.strftime("On %m/%d/%Y") %> <%= res.datetime.strftime("at %I:%M%p") %></p>
         
-        <%= button_to "delete", appointment, :method => :delete %>
+        <%= button_to "delete", res, :method => :delete %>
 <%end%>
