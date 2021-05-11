@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/reviews/newest_reviews' => 'reviews#newest_reviews'
 
-  get '/auth/:provider/callback', to: 'sessions#omniauth'  
+  get '/auth/:provider/callback' => 'sessions#omniauth'  
   
   resources :reviews
   resources :reservations
