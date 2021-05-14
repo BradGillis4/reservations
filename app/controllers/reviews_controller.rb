@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
             @reviews = @restaurant.reviews
         elsif check_user
             @reviews = current_user.reviews
+            @user = current_user
         else
             @reviews = Review.all 
         end
