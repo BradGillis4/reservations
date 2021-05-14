@@ -16,8 +16,9 @@ class ReservationsController < ApplicationController
                 
                 redirect_to reservations_path
             else
-                
+                flash[:error] = "needs time"
                 render :new
+                
             end
         end
     

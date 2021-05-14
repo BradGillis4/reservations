@@ -54,19 +54,23 @@ class ReviewsController < ApplicationController
     private 
 
     def review_params
+        #has to have specific attr listed in schema 
         params.require(:review).permit(:content, :restaurant_id, :user_id)
     end
 
     def set_review
+        #finds review by id if user is logged in
         @review = Review.find_by_id(params[:id])
         redirect_to reviews_path if !@review || @review.user != current_user
     end
 
     def check_user
+        #takes input from dynamic view in url
         params[:user_id] && @user = User.find_by_id(params[:user_id])
     end
 
     def check_restaurant
+        #takes input from dynamic view in url
         params[:restaurant_id] && @restaurant = Restaurant.find_by_id(params[:restaurant_id])
     end
 

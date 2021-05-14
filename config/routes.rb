@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   
   resources :reviews
   resources :reservations
+  #nested resource - url inside url (like in the restaurant reviews index it has second like to make new review)
   resources :restaurants do
-    resources :reviews, only: [:new, :create, :index, ]
+    resources :reviews, only: [:new, :create, :index ]
   end
   resources :users do 
     resources :reviews, only: [:index]
