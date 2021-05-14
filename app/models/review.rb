@@ -3,7 +3,7 @@ class Review < ApplicationRecord
     belongs_to :restaurant
 
    
-    validates :content, presence: true, length: {maximum: 250} 
+    validates :content, presence: true, length: {minimum: 5, maximum: 250} 
     
     #scope method
     def self.newest_reviews

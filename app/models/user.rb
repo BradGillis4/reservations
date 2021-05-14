@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :reviews
     
-    has_many :reviewed_restaurants, through: :reviews, source: :restaurant
+    has_many :restaurant_reviews, through: :reviews, source: :restaurant
     has_many :reservations
     has_secure_password 
 
