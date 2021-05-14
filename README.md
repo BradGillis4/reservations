@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello, welcome to the Darden Restaurants reservation scheduler.
 
-Things you may want to cover:
+This program is used to schedule reservations at Darden brand restaurants. 
 
-* Ruby version
+To start fork this program and run bundle install to add gems. Then rake db:migrate to get started.
 
-* System dependencies
+You are able to login via google.
 
-* Configuration
+Feel free to leave a review after your dinner to let other users know how it went.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Also check out the most recent reservations on our site in the home screen.
