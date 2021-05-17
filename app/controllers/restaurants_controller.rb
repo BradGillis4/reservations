@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+    # before_action :most_popular
     def new
         @restaurant = Restaurant.new
     end
@@ -16,12 +17,15 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.all
     end
 
-    def show
-        @restaurant = Restaurant.find(params[:id])
-    end
+    def popular_restaurants
+       @restaurant = Restaurant.popular_restaurant
+       
+        end
+    
 
     private 
 
+    
     def restaurant_params 
         params.require(:restaurant).permit(:name)
     end

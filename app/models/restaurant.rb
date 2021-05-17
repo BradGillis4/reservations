@@ -4,14 +4,26 @@ class Restaurant < ApplicationRecord
     has_many :reservations
 
     validates :name, presence: true  
-     
-    # validate :not_a_duplicate 
 
-    # def not_a_duplicate
-    #     # if there is already a shop with this name and address 
-    #     restaurant = Restaurant.find_by(name: name) 
-    #     if  !!restaurant && restaurant != self
-    #       errors.add(:name, 'has already been added')
-    #     end
-    # end 
+    def self.popular_restaurant
+        total_restaurant_with_reviews = self.joins(:reviews).group('reviews.restaurant_id').having('reviews.id')
+        @count_of_reviews = []
+
+        total_restaurant_with_reviews.each do |restaurant|
+            hash  = {reviewsCount: restaurant.reviews.count, name: restaurant.name}
+            @count_of_reviews.push(hash)
+        end
+            #sort an array by the hash 
+        @sort = @count_of_reviews.sort_by{|hsh|hsh[:reviewsCount]}.reverse
+            
+    return @sort[0][:name]
+        # order('reviews')
+        # having('count(reviews.id)')
+
+        # count reviews
+        # sort them by the count
+        # return just the first one
+    end
+
+
 end

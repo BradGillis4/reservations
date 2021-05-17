@@ -15,5 +15,8 @@ class ApplicationController < ActionController::Base
             redirect_to '/' if !logged_in?
         end
 
+        # def most_popular
+        #     @restaurant.find_by(:reviews)
+        # end
 
 end

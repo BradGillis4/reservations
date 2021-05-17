@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/reviews/newest_reviews' => 'reviews#newest_reviews'
+  get '/restaurants/popular_restaurants' => 'restaurants#popular_restaurants'
 
   get '/auth/:provider/callback' => 'sessions#omniauth'  
   
